@@ -126,6 +126,81 @@ After that you can build with:
 
 ```cargo build```
 
+#### Windows
+
+Based in instructions from https://github.com/Rust-SDL2/rust-sdl2
+
+1. Create the following folder structure in the same folder as your Cargo.toml:
+
+   ```
+   gnu-mingw\dll\32
+   gnu-mingw\dll\64
+   gnu-mingw\lib\32
+   gnu-mingw\lib\64
+   msvc\dll\32
+   msvc\dll\64
+   msvc\lib\32
+   msvc\lib\64
+   ```
+
+   e.g with 
+
+   ```
+   mkdir gnu-mingw\dll\32
+   mkdir gnu-mingw\dll\64
+   mkdir gnu-mingw\lib\32
+   mkdir gnu-mingw\lib\64
+   mkdir msvc\dll\32
+   mkdir msvc\dll\64
+   mkdir msvc\lib\32
+   mkdir msvc\lib\64
+   ```
+
+   
+
+2. Download mingw and msvc development libraries from 
+
+   - https://www.libsdl.org/download-2.0.php  (SDL2-devel-2.0.x-mingw.tar.gz & SDL2-devel-2.0.x-VC.zip)
+   - https://www.libsdl.org/projects/SDL_image/  ( SDL2_image-devel-2.0.x-VC.zip & SDL2_image-devel-2.0.x-mingw.tar.gz )
+   - https://www.libsdl.org/projects/SDL_ttf/ (SDL2_ttf-devel-2.0.x-VC.zip & SDL2_ttf-devel-2.0.x-mingw.tar.gz)
+
+3. Unpack to folders of your choosing (You can delete it afterwards).
+
+4. Copy the lib and dll files from the source archive to the directories we created in step 3 like so (you can skip targets you don't need):
+
+```
+SDL2-devel-2.0.x-mingw.tar.gz\SDL2-2.0.x\i686-w64-mingw32\bin 		-> 	gnu-mingw\dll\32
+SDL2-devel-2.0.x-mingw.tar.gz\SDL2-2.0.x\x86_64-w64-mingw32\bin 	-> 	gnu-mingw\dll\64
+SDL2-devel-2.0.x-mingw.tar.gz\SDL2-2.0.x\i686-w64-mingw32\lib 		-> 	gnu-mingw\lib\32
+SDL2-devel-2.0.x-mingw.tar.gz\SDL2-2.0.x\x86_64-w64-mingw32\lib 	-> 	gnu-mingw\lib\64
+SDL2-devel-2.0.x-VC.zip\SDL2-2.0.x\lib\x86\*.dll	 		-> 	msvc\dll\32
+SDL2-devel-2.0.x-VC.zip\SDL2-2.0.x\lib\x64\*.dll 			-> 	msvc\dll\64
+SDL2-devel-2.0.x-VC.zip\SDL2-2.0.x\lib\x86\*.lib	 		-> 	msvc\lib\32
+SDL2-devel-2.0.x-VC.zip\SDL2-2.0.x\lib\x64\*.lib	 		-> 	msvc\lib\64
+
+SDL2_image-devel-2.0.x-mingw.tar.gz\SDL2_image-2.0.x\i686-w64-mingw32\bin 		-> 	gnu-mingw\dll\32
+SDL2_image-devel-2.0.x-mingw.tar.gz\SDL2_image-2.0.x\x86_64-w64-mingw32\bin 	-> 	gnu-mingw\dll\64
+SDL2_image-devel-2.0.x-mingw.tar.gz\SDL2_image-2.0.x\i686-w64-mingw32\lib 		-> 	gnu-mingw\lib\32
+SDL2_image-devel-2.0.x-mingw.tar.gz\SDL2_image-2.0.x\x86_64-w64-mingw32\lib 	-> 	gnu-mingw\lib\64
+SDL2_image-devel-2.0.x-VC.zip\SDL2_image-2.0.x\lib\x86\*.dll	 		-> 	msvc\dll\32
+SDL2_image-devel-2.0.x-VC.zip\SDL2_image-2.0.x\lib\x64\*.dll 			-> 	msvc\dll\64
+SDL2_image-devel-2.0.x-VC.zip\SDL2_image-2.0.x\lib\x86\*.lib	 		-> 	msvc\lib\32
+SDL2_image-devel-2.0.x-VC.zip\SDL2_image-2.0.x\lib\x64\*.lib	 		-> 	msvc\lib\64
+
+SDL2_ttf-devel-2.0.x-mingw.tar.gz\SDL2_ttf-2.0.x\i686-w64-mingw32\bin 		-> 	gnu-mingw\dll\32
+SDL2_ttf-devel-2.0.x-mingw.tar.gz\SDL2_ttf-2.0.x\x86_64-w64-mingw32\bin 	-> 	gnu-mingw\dll\64
+SDL2_ttf-devel-2.0.x-mingw.tar.gz\SDL2_ttf-2.0.x\i686-w64-mingw32\lib 		-> 	gnu-mingw\lib\32
+SDL2_ttf-devel-2.0.x-mingw.tar.gz\SDL2_ttf-2.0.x\x86_64-w64-mingw32\lib 	-> 	gnu-mingw\lib\64
+SDL2_ttf-devel-2.0.x-VC.zip\SDL2_ttf-2.0.x\lib\x86\*.dll	 		-> 	msvc\dll\32
+SDL2_ttf-devel-2.0.x-VC.zip\SDL2_ttf-2.0.x\lib\x64\*.dll 			-> 	msvc\dll\64
+SDL2_ttf-devel-2.0.x-VC.zip\SDL2_ttf-2.0.x\lib\x86\*.lib	 		-> 	msvc\lib\32
+SDL2_ttf-devel-2.0.x-VC.zip\SDL2_ttf-2.0.x\lib\x64\*.lib	 		-> 	msvc\lib\64
+```
+
+
+
+
+
 ## Contributing
 
 I aim for this project to be a great place for people just starting with Rust and just starting with Open Source to get involved. I'm pretty green with Rust myself, so any code review, refactorings to idiomatic style, bug fixes and feature PRs are very much appreciated. I have purposely left some features unimplemented before open sourcing with the idea that someone can pick them up as a good first contribution. So please, join in. No developer is too green for this project.

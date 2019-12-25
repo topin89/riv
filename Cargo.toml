@@ -3,6 +3,7 @@ name = "riv"
 version = "0.3.0"
 authors = ["davejkane", "gurgalex", "nickhackman"]
 edition = "2018"
+build = "build.rs"
 
 [dependencies]
 clap = "2.33"
